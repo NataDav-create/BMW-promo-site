@@ -3,15 +3,35 @@ document.addEventListener('DOMContentLoaded', () => {
   const featureSubElems = document.querySelectorAll('.feature-sub');
 
   featureLinksElems.forEach((btn, index) => {
-    btn.addEventListener('click', () => {
-      featureSubElems.forEach((elem) => {
-        elem.classList.add('hidden')
-      });
-      featureLinksElems.forEach((elem) => {
-        elem.classList.remove('feature__link_active')
-      })
-      featureSubElems[index].classList.remove('hidden');
-      btn.classList.add('feature__link_active');
+    changeClass();
+    btn.addEventListener('click', (e) => {
+
+      // featureSubElems.forEach((elem) => {
+      //   elem.classList.add('hidden')
+      // });
+      // featureLinksElems.forEach((elem) => {
+      //   elem.classList.remove('feature__link_active')
+      // });
+      if (btn.classList.contains('feature__link_active')) {
+        changeClass();
+        btn.classList.remove('feature__link_active');
+        featureSubElems[index].classList.add('hidden');
+
+      } else {
+        changeClass();
+        btn.classList.add('feature__link_active');
+        featureSubElems[index].classList.remove('hidden');
+
+      }
     })
   })
+
+  function changeClass() {
+    featureSubElems.forEach((elem) => {
+      elem.classList.add('hidden')
+    });
+    featureLinksElems.forEach((elem) => {
+      elem.classList.remove('feature__link_active')
+    });
+  }
 });
