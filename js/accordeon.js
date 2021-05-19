@@ -4,16 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   featureLinksElems.forEach((btn, index) => {
     changeClass();
-    btn.addEventListener('click', (e) => {
-
-      // featureSubElems.forEach((elem) => {
-      //   elem.classList.add('hidden')
-      // });
-      // featureLinksElems.forEach((elem) => {
-      //   elem.classList.remove('feature__link_active')
-      // });
+    btn.addEventListener('click', () => {
       if (btn.classList.contains('feature__link_active')) {
-        changeClass();
         btn.classList.remove('feature__link_active');
         featureSubElems[index].classList.add('hidden');
 
