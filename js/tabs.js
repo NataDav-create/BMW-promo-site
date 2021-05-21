@@ -2,8 +2,11 @@ const tabsHandlerElems = document.querySelectorAll('[data-tabs-handler]');
 const tabsFieldElems = document.querySelectorAll('[data-tabs-field]');
 
 for (const tab of tabsHandlerElems) {
-  console.log(tab)
+  let headers = document.querySelectorAll('.design__title');
   tab.addEventListener('click', () => {
+    headers.forEach(header => {
+      header.classList.toggle('hidden')
+    })
     tabsHandlerElems.forEach(item => {
 
       if (tab === item) {
